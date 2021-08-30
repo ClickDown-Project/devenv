@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  webapp:
+    build: ./webapp
+    container_name: webapp
+    ports:
+      - "4200:4200"
+    volumes: 
+      - "./webapp:/webapp"
+
+  gateway:
+    build: ./message-broker
+    container_name: gateway
+    ports:
+      - "3400:3400"
+    volumes:
+      - "./message-broker:/message-broker"
+
+  api:
+    build: ./api
+    container_name: api
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./api:/api"
+
+  auth:
+    build: ./auth
+    container_name: auth
+    ports:
+      - "3300:3300"
+    volumes:
+      - "./auth:/auth"
