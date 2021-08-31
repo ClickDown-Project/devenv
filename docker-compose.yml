@@ -1,13 +1,14 @@
 version: "3.8"
 
 services:
-  webapp:
-    build: ./webapp
-    container_name: webapp
-    ports:
-      - "4200:4200"
-    volumes: 
-      - "./webapp:/webapp"
+  # Run webapp in terminal instead of docker, docker's slower than terminal
+  # webapp:
+  #   build: ./webapp
+  #   container_name: webapp
+  #   ports:
+  #     - "4200:4200"
+  #   volumes: 
+  #     - "./webapp:/webapp"
 
   gateway:
     build: ./message-broker
